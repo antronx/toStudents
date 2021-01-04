@@ -8,10 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
-//import org.openqa.selenium.support.PageFactory;
 
 public class LoginForm {
 
@@ -37,12 +33,11 @@ public class LoginForm {
     @FindBy(className = "errortext")
     private WebElement errorMessage;
 
-    @Step("Enter Credentials -> check Remember Me chackbox - Click Log In")
-    public void enterCredentials() throws InterruptedException {
+    @Step("Enter Credentials -> check Remember Me checkbox - Click Log In")
+    public void enterCredentials() {
         loginField.sendKeys("Anton");
         passwordField.sendKeys("qwerty");
         rememberMeCheckbox.click();
-//        Assert.assertTrue(errorMessage.getText().contains("Неверный логин или пароль."));
     }
 
     @Step("Click Log In button.")
@@ -52,7 +47,7 @@ public class LoginForm {
 
     @Step("Verify that error for Invalid Credentials is correct")
     public void VerifyErrorForInvalidCreds() {
-        Assert.assertTrue(errorMessage.getText().contains("Неверный логин или пароль1."));
+        Assert.assertTrue(errorMessage.getText().contains("Неверный логин или пароль."));
     }
 
 
