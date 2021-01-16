@@ -1,8 +1,10 @@
 package com.mycompany.app.luxoftTraining;
 
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,7 +24,8 @@ public class HomePage {
     @FindBy(className = "st0")
     private WebElement menuButton;
 
-    @FindBy(xpath = "//div[@class='hidden-menu-header']/a[1]")
+    @FindBy(css = "a.two-links")
+    //@FindBy(xpath = "//div[@class='hidden-menu-header']/a[1]")
     private WebElement homePage;
 
     @FindBy(xpath = "//ul[@class='first-menu-addit']/li/a")
@@ -50,6 +53,24 @@ public class HomePage {
             index++;
         }
         return firstMenuLinksArray;
+    }
+
+    @Step("Verify that links in Main Menu change their color on mouseover")
+    public void verifyLinksColorChange() {
+        Actions action = new Actions(driver);
+        String elementColor;
+        for (WebElement element : firstMenuLinks) {
+            action.moveToElement(element).perform();
+            elementColor = element.getCssValue("color");
+            //Added few lines to debug
+            //Test fails because of the bug in Luxoft page.
+            //Last item of the list is always overlapped therefore does not change it's color
+            System.out.println(elementColor);
+            System.out.println(elementColor.equals("rgba(242, 111, 33, 1)"));
+            System.out.println(element.getText());
+            Assertions.assertTrue(element.getCssValue("color").equals("rgba(242, 111, 33, 1)"));
+        }
+
     }
 }
 

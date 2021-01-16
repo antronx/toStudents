@@ -31,7 +31,7 @@ public class TestWatcher implements AfterTestExecutionCallback {
         String sDate = ft.format(new Date());
         byte[] screenshotBytes = new byte[0];
         try {
-            File screenshot1 = new File("C:/dev/Selenium/TaskToStudents/toStudents/screenshots" + testName + sDate+".png");
+            File screenshot1 = new File("./screenshots" + testName + sDate+".png");
             screenshot1.delete();
             screenshotBytes = ((TakesScreenshot) HomePage.driver).getScreenshotAs(OutputType.BYTES);
             BufferedImage image = ImageIO.read(new ByteArrayInputStream(screenshotBytes));
