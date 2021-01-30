@@ -14,7 +14,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 
 @Epic("Epic: Tests to verify Main Menu items")
 @Story("0002 - Hamburger Menu")
@@ -40,6 +39,30 @@ public class VerifyMainMenu {
         driver.manage().window().maximize();
     }
 
+    @Test
+    @Description("Verify that Menu is not visible by default")
+    public void menuDefaultStateCheck() {
+        homePage = new HomePage(driver);
+        homePage.verifyMenuDefaultState();
+    }
+
+    @Test
+    @Description("Verify that Menu is displayed after clicking on Hamburger icon")
+    public void menuVisibilityCheck() {
+        homePage = new HomePage(driver);
+        homePage.verifyMenuDefaultState();
+        homePage.clickMenu();
+        homePage.verifyMenuIsVisible();
+    }
+
+    @Test
+    @Description("Verify that Menu is closed after pressing Close button")
+    public void closeMenu() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.closeMenu();
+        homePage.verifyMenuDefaultState();
+    }
 
     @ParameterizedTest
     @Description("Verify that left menu links are correct")

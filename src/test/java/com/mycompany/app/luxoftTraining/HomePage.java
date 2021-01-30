@@ -32,6 +32,13 @@ public class HomePage {
     private List<WebElement> firstMenuLinks;
 
 
+    @FindBy(className = "close-menu")
+    private WebElement closeMenuButton;
+
+
+    @FindBy(className = "hidden-menu")
+    private WebElement hamburgerMenuHeader;
+
     @Step("Click Menu -> Login")
     public void enterToLoginForm() {
         menuButton.click();
@@ -42,6 +49,17 @@ public class HomePage {
     @Step("Click Menu button")
     public void clickMenu() {
         menuButton.click();
+
+    }
+
+    @Step("Check Menu default state")
+    public void verifyMenuDefaultState() {
+        Assertions.assertTrue(hamburgerMenuHeader.getAttribute("style").contains("display: none;"));
+    }
+
+    @Step("Verify that Main Menu is visible")
+    public void verifyMenuIsVisible() {
+        Assertions.assertTrue(hamburgerMenuHeader.getAttribute("style").isEmpty());
     }
 
     @Step("Get list of main menu items")
@@ -72,6 +90,15 @@ public class HomePage {
         }
 
     }
+
+    @Step("Close Menu Button")
+    public void closeMenu() {
+        // Assertions.assertTrue();
+        closeMenuButton.click();
+        // Add verification that menu is not visible
+    }
+
+
 }
 
 
