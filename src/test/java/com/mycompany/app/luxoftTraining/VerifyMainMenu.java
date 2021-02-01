@@ -1,5 +1,6 @@
 package com.mycompany.app.luxoftTraining;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
@@ -8,11 +9,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 
 @Epic("Epic: Tests to verify Main Menu items")
@@ -26,7 +30,7 @@ public class VerifyMainMenu {
     private static LoginForm loginForm;
 
     @BeforeAll
-    static void setUp() throws InterruptedException {
+    static void setUp() {
         ChromeOptions options = new ChromeOptions();
         //       options.setHeadless(true);
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver_win32/chromedriver.exe");
@@ -75,6 +79,16 @@ public class VerifyMainMenu {
         Assertions.assertTrue(name.equalsIgnoreCase(menuItems[id]));
     }
 
+
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing Catalogue link from Hamburger Menu")
+    void verifyRedirectToCatalogue() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickCatalogueMenuLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/training/katalog_kursov/"));
+    }
 
     @Test
     @Description("verify links change their color to orange on MouseOver")

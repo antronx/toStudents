@@ -1,5 +1,6 @@
+com\mycompany\app\luxoftTraining\TestWatcher.class
+com\mycompany\app\luxoftTraining\VerifySignInForm.class
+com\mycompany\app\luxoftTraining\VerifyMainMenu.class
 com\mycompany\app\AppTest.class
 com\mycompany\app\luxoftTraining\HomePage.class
-com\mycompany\app\luxoftTraining\TestWatcher.class
 com\mycompany\app\luxoftTraining\LoginForm.class
-com\mycompany\app\luxoftTraining\VerifySignInForm.class

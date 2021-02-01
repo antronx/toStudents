@@ -39,6 +39,9 @@ public class HomePage {
     @FindBy(className = "hidden-menu")
     private WebElement hamburgerMenuHeader;
 
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Каталог']")
+    private WebElement catalogueMenuButton;
+
     @Step("Click Menu -> Login")
     public void enterToLoginForm() {
         menuButton.click();
@@ -96,6 +99,11 @@ public class HomePage {
         // Assertions.assertTrue();
         closeMenuButton.click();
         // Add verification that menu is not visible
+    }
+
+    @Step("Click Catalogue Button")
+    public void clickCatalogueMenuLink() {
+        catalogueMenuButton.click();
     }
 
 
