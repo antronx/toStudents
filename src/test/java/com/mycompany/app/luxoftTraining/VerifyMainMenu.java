@@ -36,7 +36,7 @@ public class VerifyMainMenu {
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver_win32/chromedriver.exe");
         options.setAcceptInsecureCerts(true);
         driver = new ChromeDriver(options);
-        waitVar = new WebDriverWait(driver, 30);
+        waitVar = new WebDriverWait(driver, 10);
         driver.navigate().to("https://www.luxoft-training.ru/");
         waitVar.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='sign-in close-notice btn-primary']")));
         driver.findElement(By.xpath("//a[@class='sign-in close-notice btn-primary']")).click();
@@ -186,7 +186,7 @@ public class VerifyMainMenu {
     void verifyRedirectToContactsLink() {
         homePage = new HomePage(driver);
         homePage.clickMenu();
-        homePage.clickConsultingLink();
+        homePage.clickContactsLink();
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/contacts/moscow/"));
     }
 
