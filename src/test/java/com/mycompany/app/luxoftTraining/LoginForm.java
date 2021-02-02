@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginForm {
 
-    private WebDriver driver;
+    public static WebDriver driver;
 
     public LoginForm(WebDriver driver) {
         this.driver = driver;

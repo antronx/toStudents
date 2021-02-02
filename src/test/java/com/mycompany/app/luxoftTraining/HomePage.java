@@ -42,6 +42,37 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Каталог']")
     private WebElement catalogueMenuButton;
 
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Расписание']")
+    private WebElement timeTableLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Корпоративное обучение']")
+    private WebElement corporateTrainingLinkLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Оценка персонала']")
+    private WebElement personnelAssesmentLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Консалтинг']")
+    private WebElement consulting;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='IT-гуру']")
+    private WebElement itGuruLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Бесплатные семинары']")
+    private WebElement freeSeminarsLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Сведения об образовательной организации']")
+    private WebElement educationalOrgInfoLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Блог ']")
+    private WebElement blogLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Вакансии']")
+    private WebElement vacanciesLink;
+
+    @FindBy(xpath = "//ul[@class='first-menu-addit']//a[text()='Контакты']")
+    private WebElement contactsLink;
+
+
     @Step("Click Menu -> Login")
     public void enterToLoginForm() {
         menuButton.click();
@@ -104,6 +135,56 @@ public class HomePage {
     @Step("Click Catalogue Button")
     public void clickCatalogueMenuLink() {
         catalogueMenuButton.click();
+    }
+
+    @Step("Click Расписание Button")
+    public void clickTimeTableLink() {
+        timeTableLink.click();
+    }
+
+    @Step("Click Корпоративное обучение Button")
+    public void clickCorporateTrainingLink() {
+        corporateTrainingLinkLink.click();
+    }
+
+    @Step("Click Оценка персонала Button")
+    public void clickPersonnelAssesmentLink() {
+        personnelAssesmentLink.click();
+    }
+
+    @Step("Click Консалтинг Button")
+    public void clickConsultingLink() {
+        consulting.click();
+    }
+
+    @Step("Click ITгуру Button")
+    public void clickitGuruLink() {
+        itGuruLink.click();
+    }
+
+    @Step("Click Бесплатные семинары Button")
+    public void clickfreeSeminarsLink() {
+        freeSeminarsLink.click();
+    }
+
+    @Step("Click Сведенияоб_образовательной_организации Button")
+    public void clickeducationalOrgInfoLink() {
+        educationalOrgInfoLink.click();
+    }
+
+    @Step("Click Блог Button")
+    public void clickblogLink() {
+        blogLink.click();
+    }
+
+    @Step("Click Вакансии Button")
+    public void clickvacanciesLink() {
+        vacanciesLink.click();
+    }
+
+    @Step("Click Контакты Button")
+    public void clickContactsLink() {
+        contactsLink.click();
     }
 
 

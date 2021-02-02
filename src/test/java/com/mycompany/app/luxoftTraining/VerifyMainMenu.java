@@ -32,7 +32,7 @@ public class VerifyMainMenu {
     @BeforeAll
     static void setUp() {
         ChromeOptions options = new ChromeOptions();
-        //       options.setHeadless(true);
+        options.setHeadless(true);
         System.setProperty("webdriver.chrome.driver", "lib/chromedriver_win32/chromedriver.exe");
         options.setAcceptInsecureCerts(true);
         driver = new ChromeDriver(options);
@@ -80,14 +80,114 @@ public class VerifyMainMenu {
     }
 
 
-
     @Test
-    @Description("Verify that user is redirected to correct page after pressing Catalogue link from Hamburger Menu")
+    @Description("Verify that user is redirected to correct page after pressing 'Каталог' link from Hamburger Menu")
     void verifyRedirectToCatalogue() {
         homePage = new HomePage(driver);
         homePage.clickMenu();
         homePage.clickCatalogueMenuLink();
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/training/katalog_kursov/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Расписание' link from Hamburger Menu")
+    void verifyRedirectToSchedule() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickTimeTableLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/timetable/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Расписание' link from Hamburger Menu")
+    void verifyRedirectToTimeTable() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickTimeTableLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/timetable/"));
+    }
+
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Корпоративное обучение' link from Hamburger Menu")
+    void verifyRedirectToCorporateTrainingLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickCorporateTrainingLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/corporate/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Оценка персонала' link from Hamburger Menu")
+    void verifyRedirectToPersonnelAssesmentLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickPersonnelAssesmentLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/testing/"));
+    }
+
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Консалтинг' link from Hamburger Menu")
+    void verifyRedirectToConsulting() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickConsultingLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/consulting/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'IT-гуру' link from Hamburger Menu")
+    void verifyRedirectToItGuruLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickitGuruLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/training/it-guru/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Бесплатные семинары' link from Hamburger Menu")
+    void verifyRedirectToFreeSeminarsLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickfreeSeminarsLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/personal_test/learning/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Сведения об образовательной организации' link from Hamburger Menu")
+    void verifyRedirectToEducationalOrgInfoLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickeducationalOrgInfoLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/educational_information/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Блог' link from Hamburger Menu")
+    void verifyRedirectToBlogLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickblogLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/about/news/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Вакансии' link from Hamburger Menu")
+    void verifyRedirectToVacanciesLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickvacanciesLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/vacancies/"));
+    }
+
+    @Test
+    @Description("Verify that user is redirected to correct page after pressing 'Контакты' link from Hamburger Menu")
+    void verifyRedirectToContactsLink() {
+        homePage = new HomePage(driver);
+        homePage.clickMenu();
+        homePage.clickConsultingLink();
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.luxoft-training.ru/contacts/moscow/"));
     }
 
     @Test
